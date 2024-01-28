@@ -23,6 +23,7 @@ public class JwtUtils {
     public String generateAccessToken(String userName,String jwtPrivateKey) throws NoSuchAlgorithmException, InvalidKeySpecException {
         return Jwts.builder()
                 .setSubject(userName)
+                .claim("keras","abcsd")
                 .setIssuedAt(new Date())
                 .setExpiration(new Date((new Date()).getTime() + accessExpirationMs))
                 .signWith(SignatureAlgorithm.RS256, generateJwtKeyEncryption(jwtPrivateKey))

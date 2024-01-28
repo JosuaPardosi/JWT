@@ -31,12 +31,7 @@ public class MainClient {
             System.out.println();
 
             String[] chunks = jwtToken.split("\\.");
-
-            String header =  Arrays.toString(Base64.decodeBase64(chunks[0]));
-            String payload= Arrays.toString(Base64.decodeBase64(chunks[1]));
-            String signature = Arrays.toString(Base64.decodeBase64(chunks[2]));
-
-            byte[] decoded = java.util.Base64.getDecoder().decode(chunks[1]);
+            byte[] decoded = java.util.Base64.getDecoder().decode(chunks[0]);
             String decodedStr = new String(decoded, StandardCharsets.UTF_8);
             System.out.println(decodedStr);
         }catch(Exception e){
